@@ -119,7 +119,7 @@ public class CargarTextos extends javax.swing.JFrame {
                int carnet=Integer.parseInt(Datos.get(i+1).replaceAll("CARNET:",""));                
                String nombre= Datos.get(i+2).replaceAll("NOMBRE:","");
                int carrera=Integer.parseInt(Datos.get(i+3).replaceAll("CARRERA:",""));              
-               RegistroEstudiantes tmp=null;
+               RegistroEstudiantes tmp;
                tmp=new RegistroEstudiantes(carnet,nombre,carrera);
                RegistrarEstudiantes(tmp);
              }
@@ -128,7 +128,7 @@ public class CargarTextos extends javax.swing.JFrame {
                String codigolibro=Datos.get(i+1).replaceAll("CODIGOLIBRO:","");                
                String fecha= Datos.get(i+3).replaceAll("FECHA:","");
                int carnet=Integer.parseInt(Datos.get(i+2).replaceAll("CARNET:",""));              
-               RegitroDePrestamos tmp=null;
+               RegitroDePrestamos tmp;
                tmp=new RegitroDePrestamos(codigolibro,carnet,fecha);
                RegistrarPrestamos(tmp);
              }
@@ -153,7 +153,7 @@ public class CargarTextos extends javax.swing.JFrame {
 }
      public void RegistrarPrestamos(RegitroDePrestamos tmp){
 String path = "src\\ArchivosDePrestamos";     
-File file=new File("src\\ArchivoDePrestamos\\"+tmp.getCarnet()+".bin");
+File file=new File("src\\ArchivoDePrestamos\\"+tmp.getCarnet()+tmp.getCodigoLibro()+".bin");
 
 FileOutputStream fileOut;
 ObjectOutputStream objectout;

@@ -420,6 +420,7 @@ ObjectOutputStream objectout;
            
         ListadoDeLibros a=new ListadoDeLibros();
         a.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
