@@ -78,7 +78,7 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         ClasePrestamos abrir=new ClasePrestamos();
-        abrir.setSize(500,500);
+        
         abrir.setVisible(true);
         this.setVisible(false);
         
@@ -92,11 +92,9 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        /*
-        SaldarPrestamo abrir=new SaldarPrestamo();
-        abrir.setVisible(true);
-        this.setVisible(false);
-        */
+       CargarTextos a=new CargarTextos();
+       a.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
