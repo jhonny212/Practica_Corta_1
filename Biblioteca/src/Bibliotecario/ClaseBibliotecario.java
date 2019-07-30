@@ -11,6 +11,9 @@ package Bibliotecario;
  */
 public class ClaseBibliotecario extends javax.swing.JFrame {
 
+    
+    ClaseLibro a = new ClaseLibro();
+        
     /**
      * Creates new form ClaseBibliotecario
      */
@@ -29,10 +32,13 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
+        botonLibro = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -42,14 +48,14 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
         jLabel1.setText("Bibliotecario");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
 
-        jButton4.setText("Libros");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        botonLibro.setText("Libros");
+        botonLibro.setBorder(null);
+        botonLibro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                botonLibroActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 120, 40));
+        getContentPane().add(botonLibro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 120, 40));
 
         jButton2.setText("Prestamos");
         jButton2.setBorder(null);
@@ -58,7 +64,7 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 120, 40));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 120, 40));
 
         jButton3.setText("Ingresar Archivo de Texto");
         jButton3.setBorder(null);
@@ -69,8 +75,29 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 210, 40));
 
+        jButton5.setText("Ingresar Estudiante");
+        jButton5.setBorder(null);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 170, 40));
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Books (1).jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        jButton6.setText("Prestamos");
+        jButton6.setBorder(null);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 120, 40));
+
+        jButton1.setText("jButton1");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -84,11 +111,11 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void botonLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibroActionPerformed
         // TODO add your handling code here:
-        ClaseLibro a = new ClaseLibro();
         a.setVisible(true);
-    }//GEN-LAST:event_jButton4ActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_botonLibroActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -98,6 +125,20 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
         this.setVisible(false);
         */
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        IngresarEstudiante b = new IngresarEstudiante();
+        b.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        /* IngresarEstudiante b = new IngresarEstudiante();
+        b.setVisible(true);
+        this.setVisible(false);*/
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -135,9 +176,12 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonLibro;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
