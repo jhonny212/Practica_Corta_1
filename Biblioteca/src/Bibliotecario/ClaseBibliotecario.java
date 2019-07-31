@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Bibliotecario;
+import Bibliotecario.OpcionesEstudiante;
 
 /**
  *
@@ -12,7 +13,7 @@ package Bibliotecario;
 public class ClaseBibliotecario extends javax.swing.JFrame {
 
     
-    ClaseLibro a = new ClaseLibro();
+  
         
     /**
      * Creates new form ClaseBibliotecario
@@ -75,7 +76,7 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 210, 40));
 
-        jButton5.setText("Ingresar Estudiante");
+        jButton5.setText("Opciones Estudiante");
         jButton5.setBorder(null);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,31 +105,26 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ClasePrestamos abrir=new ClasePrestamos();
-        
-        abrir.setVisible(true);
-        this.setVisible(false);
+      
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void botonLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibroActionPerformed
         // TODO add your handling code here:
-        a.setVisible(true);
+      
         this.setVisible(false);
     }//GEN-LAST:event_botonLibroActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-       CargarTextos a=new CargarTextos();
-       a.setVisible(true);
-       this.setVisible(false);
+       
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        IngresarEstudiante b = new IngresarEstudiante();
-        b.setVisible(true);
-        this.setVisible(false);
+       OpcionesEstudiante a = new OpcionesEstudiante();
+       a.setVisible(true);
+       this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

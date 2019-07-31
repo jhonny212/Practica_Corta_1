@@ -161,7 +161,9 @@ public class IngresarEstudiante extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-      Estudiante tmp = new Estudiante(nombre.getText(),carnet.getText(),carrera.getText(),fecha.getText());
+     int carnett = Integer.parseInt(carnet.getText());
+     int carreraa = Integer.parseInt(carrera.getText());
+     RegistroEstudiantes tmp = new RegistroEstudiantes(carnett,nombre.getText(),carreraa);
         File archivo=new File("NombredelArchibo.bin");
    
           FileOutputStream fileOut;
