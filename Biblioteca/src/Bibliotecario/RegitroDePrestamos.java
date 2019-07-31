@@ -44,4 +44,7 @@ public class RegitroDePrestamos implements Serializable{
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
+    
+    
+    
 }

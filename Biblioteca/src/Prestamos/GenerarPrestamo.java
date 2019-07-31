@@ -254,6 +254,11 @@ RegitroDePrestamos tmp;
 
 tmp=new RegitroDePrestamos(Cod.getText(),Integer.parseInt(carnet.getText()),"");
 
+
+
+
+
+
 }
 /**
      * @param args the command line arguments

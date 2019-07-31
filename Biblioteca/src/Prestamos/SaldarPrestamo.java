@@ -5,6 +5,17 @@
  */
 package Prestamos;
 
+
+import Bibliotecario.RegitroDePrestamos;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.LinkedList;
+
 /**
  *
  * @author jhonny-G
@@ -27,17 +38,180 @@ public class SaldarPrestamo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        carnet = new javax.swing.JTextField();
+        cod = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        carnet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                carnetKeyTyped(evt);
+            }
+        });
+        getContentPane().add(carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 120, 30));
+
+        cod.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                codKeyTyped(evt);
+            }
+        });
+        getContentPane().add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 120, 30));
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("CARNET");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("CODIGO LIBRO");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("Saldar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 90, 30));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 520, 70));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 670, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public boolean validar=false;
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Validar();
+        if(validar){
+        HacerPrestamo();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+public RegitroDePrestamos tmp;
+    public void HacerPrestamo(){
+File file=new File("src\\ArchivoDePrestamos\\"+carnet.getText()+cod.getText()+".bin");
+file.renameTo(new File("src\\Prestamos_Realizados\\"+carnet.getText()+cod.getText()+".bin"));
+/*
+ FileInputStream filein;
+ ObjectInputStream objectin;
+   try {
+            filein=new FileInputStream(file);
+           
+            objectin=new ObjectInputStream(filein);
+           this.tmp=(RegitroDePrestamos) objectin.readObject();
+       } catch (FileNotFoundException ex) {
+        System.out.println("h1");
+        } catch (IOException ex) {
+      System.out.println("h2");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("h3");
+        }
 
+
+
+
+ try {
+            fileOut=new FileOutputStream(file2);
+            objectout=new ObjectOutputStream(fileOut);
+            objectout.writeObject(tmp);
+            
+            
+        } catch (FileNotFoundException ex) {
+       
+        } catch (IOException ex) {
+        
+        }
+
+
+
+
+file.delete();*/
+}
+    private void carnetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_carnetKeyTyped
+        // TODO add your handling code here:
+   if(carnet.getText().length()<=8){
+         char validar=evt.getKeyChar(); 
+        if(Character.isLetter(validar)){
+         getToolkit().beep();
+        evt.consume();
+        }
+        }else{
+         getToolkit().beep();
+        evt.consume();
+        
+        }        
+        
+    }//GEN-LAST:event_carnetKeyTyped
+
+    private void codKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_codKeyTyped
+        // TODO add your handling code here:
+        
+             char validar=evt.getKeyChar();
+        String tmp="";
+        tmp=cod.getText();
+        
+    
+        if(tmp.length()<=2){
+          if(Character.isLetter(validar) ){   
+        getToolkit().beep();
+        evt.consume();
+        }
+       
+        }
+        if(tmp.length()==3){
+        if(validar!='-'){
+        getToolkit().beep();
+        evt.consume();
+        }
+        }
+        if(tmp.length()>3 && tmp.length()<7 ){
+        if(Character.isDigit(validar)){
+         getToolkit().beep();
+        evt.consume();
+        }
+        }
+        if(tmp.length()>=7){
+         getToolkit().beep();
+        evt.consume();
+        }
+
+    }//GEN-LAST:event_codKeyTyped
+public void Validar(){
+
+String tmp="";
+tmp=carnet.getText()+cod.getText()+".bin";
+
+        String path = "src\\ArchivosDelibros"; 
+
+        String files;
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles(); 
+
+        for (int i = 0; i < listOfFiles.length; i++)         {
+
+            if (listOfFiles[i].isFile())             {
+                files = listOfFiles[i].getName();
+                 if(tmp.equals(files)){
+                 validar=true;
+                 break;
+             }
+            }
+        }
+        
+      
+
+}
     /**
      * @param args the command line arguments
      */
@@ -74,6 +248,12 @@ public class SaldarPrestamo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField carnet;
+    private javax.swing.JTextField cod;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
