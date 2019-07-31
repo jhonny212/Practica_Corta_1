@@ -82,7 +82,7 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//aa
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
 //        ClasePrestamos abrir=new ClasePrestamos();
