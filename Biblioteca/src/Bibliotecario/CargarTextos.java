@@ -30,13 +30,17 @@ public class CargarTextos extends javax.swing.JFrame {
 //  public LinkedList<Libro> RegistroLibro =new LinkedList();
 //  public LinkedList<RegistroEstudiantes> RegistroEstudiantes =new LinkedList();
 //  public LinkedList<RegitroDePrestamos> RegistroPrestamos =new LinkedList();
-
+public int libros;
+public int prestamos;
+public int estudiantes;
     /**
      * Creates new form CargarTextos
      */
     public CargarTextos() {
         initComponents();
-       
+       this.libros=0;
+       this.prestamos=0;
+       this.estudiantes=0;
          
     }
 
@@ -83,6 +87,14 @@ public class CargarTextos extends javax.swing.JFrame {
 }else{
        CargarArchivos(a); 
        
+       if(libros!=0 || prestamos!=0 || estudiantes!=0)
+       {
+        JOptionPane.showMessageDialog(this, "Registros Ignorados:"+"libros:"+libros+""
+        +"prestamos:"+prestamos+""+"Estudiantes:"+estudiantes
+        );
+
+       }
+       
        }
        
 
@@ -104,8 +116,12 @@ public class CargarTextos extends javax.swing.JFrame {
             if(validar){
                for(int i=0;i<Datos.size();i++){
             if(Datos.get(i).equals("LIBRO")){
+                 if(!Datos.get(i+4).equals("ESTUDIANTE")||!Datos.get(i+4).equals("PRESTAMO")  ||!Datos.get(i+4).equals("LIBRO")   ){
+                 if(!Datos.get(i+3).equals("ESTUDIANTE")||!Datos.get(i+3).equals("PRESTAMO")  ||!Datos.get(i+3).equals("LIBRO")   ){
+                 if(!Datos.get(i+2).equals("ESTUDIANTE")||!Datos.get(i+2).equals("PRESTAMO")  ||!Datos.get(i+2).equals("LIBRO")   ){
+                 if(!Datos.get(i+1).equals("ESTUDIANTE")||!Datos.get(i+1).equals("PRESTAMO")  ||!Datos.get(i+1).equals("LIBRO")   ){
                
-                String titulo= Datos.get(i+1).replaceAll("TITULO:","");
+              String titulo= Datos.get(i+1).replaceAll("TITULO:","");
                 String autor= Datos.get(i+2).replaceAll("AUTOR:","");
                 String codigo= Datos.get(i+3).replaceAll("CODIGO:","");
                 int cantidad=Integer.parseInt(Datos.get(i+4).replaceAll("CANTIDAD:",""));
@@ -113,25 +129,63 @@ public class CargarTextos extends javax.swing.JFrame {
                 tmp=new Libro(codigo,autor,titulo,cantidad,"","");
                 
                 registrarlibro(tmp);
-                
-                
+
+                 }else{
+                 this.estudiantes++;
+                 }
+                 }else{
+                 this.estudiantes++;
+                 }
+                 }else{
+                 this.estudiantes++;
+                 }
+                 }else{
+                 this.estudiantes++;
+                 }
+                               
              }
               if(Datos.get(i).equals("ESTUDIANTE")){
-               int carnet=Integer.parseInt(Datos.get(i+1).replaceAll("CARNET:",""));                
+                  if(!Datos.get(i+3).equals("ESTUDIANTE")||!Datos.get(i+3).equals("PRESTAMO")  ||!Datos.get(i+3).equals("LIBRO") ){
+                 if(!Datos.get(i+2).equals("ESTUDIANTE")||!Datos.get(i+2).equals("PRESTAMO")  ||!Datos.get(i+2).equals("LIBRO") ){
+                 if(!Datos.get(i+1).equals("ESTUDIANTE")||!Datos.get(i+1).equals("PRESTAMO")  ||!Datos.get(i+1).equals("LIBRO") ){
+                 int carnet=Integer.parseInt(Datos.get(i+1).replaceAll("CARNET:",""));                
                String nombre= Datos.get(i+2).replaceAll("NOMBRE:","");
                int carrera=Integer.parseInt(Datos.get(i+3).replaceAll("CARRERA:",""));              
                RegistroEstudiantes tmp;
                tmp=new RegistroEstudiantes(carnet,nombre,carrera);
                RegistrarEstudiantes(tmp);
+                 }else{
+                  this.estudiantes++;
+                  }
+                 }else{
+                  this.estudiantes++;
+                  }
+                 }else{
+                  this.estudiantes++;
+                  }
+             
              }
                
                if(Datos.get(i).equals("PRESTAMO")){
-               String codigolibro=Datos.get(i+1).replaceAll("CODIGOLIBRO:","");                
+                   if(!Datos.get(i+3).equals("ESTUDIANTE")||!Datos.get(i+3).equals("PRESTAMO")  ||!Datos.get(i+3).equals("LIBRO") ){
+                 if(!Datos.get(i+2).equals("ESTUDIANTE")||!Datos.get(i+2).equals("PRESTAMO")  ||!Datos.get(i+2).equals("LIBRO") ){
+                 if(!Datos.get(i+1).equals("ESTUDIANTE")||!Datos.get(i+1).equals("PRESTAMO")  ||!Datos.get(i+1).equals("LIBRO") ){
+                 String codigolibro=Datos.get(i+1).replaceAll("CODIGOLIBRO:","");                
                String fecha= Datos.get(i+3).replaceAll("FECHA:","");
                int carnet=Integer.parseInt(Datos.get(i+2).replaceAll("CARNET:",""));              
                RegitroDePrestamos tmp;
                tmp=new RegitroDePrestamos(codigolibro,carnet,fecha);
                RegistrarPrestamos(tmp);
+             
+                 }else{
+                   this.prestamos++;
+                   }
+                 }else{
+                   this.prestamos++;
+                   }
+                 }else{
+                   this.prestamos++;
+                   }
              }
              
              
