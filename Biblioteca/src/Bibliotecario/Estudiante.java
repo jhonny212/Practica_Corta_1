@@ -1,9 +1,11 @@
 
 package Bibliotecario;
 
+import java.io.Serializable;
 
 
-public class Estudiante {
+
+public class Estudiante  implements Serializable{
     String carnet;
     String nombre;
     String carrera;

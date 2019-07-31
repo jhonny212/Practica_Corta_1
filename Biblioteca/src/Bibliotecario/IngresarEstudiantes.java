@@ -188,7 +188,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String source = "src/ArchivosEstudiantes/";
+        String source = "src//ArchivosEstudiantes//";
         Estudiante tmp = new Estudiante(nombre.getText(),carnet.getText(),carrera.getText(),fecha.getText());
         File archivo=new File(source+carnet.getText()+".bin");
 
@@ -212,15 +212,14 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public void listado(){
-        
-        tmp1 = new LinkedList<>();
+          tmp1= new LinkedList<>();
         LinkedList<String> pa=new LinkedList();
-        String path = "src/ArchivosEstudiantes"; 
+        String path = "src\\ArchivosEstudiantes"; 
 
         String files;
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles(); 
-        System.out.println(listOfFiles.length);
+
         for (int i = 0; i < listOfFiles.length; i++)         {
 
             if (listOfFiles[i].isFile())             {
@@ -236,23 +235,24 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         ObjectInputStream objectin;
         for(int i=0;i<pa.size();i++){
        try {
-            filein=new FileInputStream(path+"/"+pa.get(i));
+            filein=new FileInputStream(path+"\\"+pa.get(i));
+           System.out.println(pa.get(i));
             objectin=new ObjectInputStream(filein);
-           tmps=(Estudiante)objectin.readObject();
-            tmp1.add(tmps);
+           tmps=(Estudiante) objectin.readObject();
+           
+ tmp1.add(tmps);
         } catch (FileNotFoundException ex) {
         System.out.println("h1");
         } catch (IOException ex) {
-            ex.getMessage();
-      System.out.println("h2");
+      System.out.println("hw");
         } catch (ClassNotFoundException ex) {
             System.out.println("h3");
         }
         }
-           
-        ListadoEstudiantes a=new ListadoEstudiantes();
-        a.setVisible(true);
-        this.setVisible(false);
+         
+       ListadoEstudiantes a=new ListadoEstudiantes();
+       a.setVisible(true);
+       // this.setVisible(false);
     }
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
