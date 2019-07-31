@@ -111,7 +111,7 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
     private void botonLibroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonLibroActionPerformed
         // TODO add your handling code here:
-        a.setVisible(true);
+//        a.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_botonLibroActionPerformed
 
@@ -124,8 +124,8 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        IngresarEstudiante b = new IngresarEstudiante();
-        b.setVisible(true);
+//        IngresarEstudiante b = new IngresarEstudiante();
+  //      b.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed
 

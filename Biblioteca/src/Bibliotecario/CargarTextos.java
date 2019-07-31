@@ -221,9 +221,9 @@ File ft=new File("src\\ArchivosDelibros\\"+tmp.getTitulo()+".bin");
        } catch (FileNotFoundException ex) {
        
        } catch (IOException ex) {
-           Logger.getLogger(ClaseLibro.class.getName()).log(Level.SEVERE, null, ex);
+//           Logger.getLogger(ClaseLibro.class.getName()).log(Level.SEVERE, null, ex);
        } catch (ClassNotFoundException ex) {
-           Logger.getLogger(ClaseLibro.class.getName()).log(Level.SEVERE, null, ex);
+  //         Logger.getLogger(ClaseLibro.class.getName()).log(Level.SEVERE, null, ex);
        }
         }
 
