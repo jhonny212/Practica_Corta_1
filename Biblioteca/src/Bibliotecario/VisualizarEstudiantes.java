@@ -29,18 +29,15 @@ public class VisualizarEstudiantes extends javax.swing.JPanel {
                 
            
         try {
-            FileReader fr=new FileReader("C:\\Users\\jhonny-G\\Desktop\\Nueva carpeta\\AAA\\practica1.txt");
+            FileReader fr=new FileReader("C:\\home\\alejandrobr\\NetBeansProjects\\Practica_Corta_1\\Biblioteca\\Estudiantes.txt");
             BufferedReader br=new BufferedReader(fr);
            
            
             String linea;
            LinkedList<String> Datos = new LinkedList<String>();
-          
-         while((linea=br.readLine())!=null){
-            
+           while((linea=br.readLine())!=null){
             Datos.add(linea);
-         
-         }
+            }
          for(int i=0;i<Datos.size();i++){
              if(Datos.get(i).equals("LIBRO")){
                  int tmp=i+1;
@@ -55,9 +52,13 @@ public class VisualizarEstudiantes extends javax.swing.JPanel {
      
          }
         } catch (FileNotFoundException ex) {
+<<<<<<< HEAD
         
         } catch (IOException ex) {
             Logger.getLogger(VisualizarEstudiantes.class.getName()).log(Level.SEVERE, null, ex);
+=======
+             
+>>>>>>> origin/Alejandro2
         }
     
 
