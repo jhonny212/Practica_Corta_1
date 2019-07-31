@@ -12,7 +12,6 @@ package Bibliotecario;
 public class ClaseBibliotecario extends javax.swing.JFrame {
 
     
-    ClaseLibro a = new ClaseLibro();
         
     /**
      * Creates new form ClaseBibliotecario
