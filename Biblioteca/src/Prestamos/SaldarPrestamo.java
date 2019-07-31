@@ -41,9 +41,9 @@ public class SaldarPrestamo extends javax.swing.JFrame {
         carnet = new javax.swing.JTextField();
         cod = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setResizable(false);
@@ -54,39 +54,40 @@ public class SaldarPrestamo extends javax.swing.JFrame {
                 carnetKeyTyped(evt);
             }
         });
-        getContentPane().add(carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 120, 30));
+        getContentPane().add(carnet, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, 120, 30));
 
         cod.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 codKeyTyped(evt);
             }
         });
-        getContentPane().add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, 120, 30));
+        getContentPane().add(cod, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 120, 30));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("CARNET");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("CODIGO LIBRO");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("Saldar");
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/pagar.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 90, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 90, 90));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 520, 70));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 430));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("CODIGO LIBRO");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 150, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 670, 440));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, 670, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -138,6 +139,8 @@ file.renameTo(new File("src\\Prestamos_Realizados\\"+carnet.getText()+cod.getTex
 
 file.delete();*/
 }
+   
+    
     private void carnetKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_carnetKeyTyped
         // TODO add your handling code here:
    if(carnet.getText().length()<=8){

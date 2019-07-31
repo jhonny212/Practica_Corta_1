@@ -49,7 +49,6 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         Label = new javax.swing.JLabel();
         codigo = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -63,17 +62,15 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
         editorial = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         Fecha = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
-        jLabel1.setText("Registro de Libros");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         Label.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Label.setText("CODIGO");
@@ -89,17 +86,18 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
                 codigoKeyTyped(evt);
             }
         });
-        getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 150, 30));
+        getContentPane().add(codigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 120, 30));
 
-        jButton1.setText("Guardar");
+        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Save (1).png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, 90, 30));
-        getContentPane().add(autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, 30));
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 150, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 400, 90, 80));
+        getContentPane().add(autor, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 120, 30));
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 120, 30));
 
         cantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,7 +109,7 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
                 cantidadKeyTyped(evt);
             }
         });
-        getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 150, 30));
+        getContentPane().add(cantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 120, 30));
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel3.setText("AUTOR");
@@ -128,7 +126,7 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel6.setText("FECHA");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
-        getContentPane().add(editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 150, 30));
+        getContentPane().add(editorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 120, 30));
 
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel7.setText("EDITORIAL");
@@ -139,15 +137,7 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
                 FechaKeyTyped(evt);
             }
         });
-        getContentPane().add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 150, 30));
-
-        jButton2.setText("Informacion");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 20, -1, 30));
+        getContentPane().add(Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 120, 30));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("Ver registro de libros");
@@ -157,6 +147,29 @@ public class ClaseLibro extends javax.swing.JFrame implements Serializable{
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 200, -1, 50));
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 48)); // NOI18N
+        jLabel1.setText("Registro de Libros");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/descarga.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 60, -1));
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png"))); // NOI18N
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, 50, 40));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, 60));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Libros.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 660, -1));
@@ -467,6 +480,7 @@ ObjectOutputStream objectout;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -474,6 +488,7 @@ ObjectOutputStream objectout;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField titulo;
     // End of variables declaration//GEN-END:variables
 
