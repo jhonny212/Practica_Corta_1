@@ -10,7 +10,7 @@ package Prestamos;
  * @author jhonny-G
  */
 public class ClasePrestamo extends javax.swing.JFrame {
-
+///
     /**
      * Creates new form ClasePrestamo
      */
