@@ -5,6 +5,7 @@
  */
 
 package Bibliotecario;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -210,13 +211,15 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton1ActionPerformed
-
+public Estudiante tmps;
     public void listado(){
         
-        tmp1 = new LinkedList<>();
+        tmp1 = new LinkedList();
         LinkedList<String> pa=new LinkedList();
         String path = "src/ArchivosEstudiantes"; 
-
+ 
+        FileInputStream filein;
+        ObjectInputStream objectin;
         String files;
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles(); 
@@ -231,16 +234,15 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
             }
         }
         
-        Estudiante tmps;
-        FileInputStream filein;
-        ObjectInputStream objectin;
+       
         for(int i=0;i<pa.size();i++){
        try {
-           System.out.println("aaa");
+           System.out.println(path+"/"+pa.get(i));
             filein=new FileInputStream(path+"/"+pa.get(i));
             objectin =new ObjectInputStream(filein);
-           tmps=(Estudiante)objectin.readObject();
-            tmp1.add(tmps);
+        //   this.tmps=(Estudiante) objectin.readObject();
+           System.out.print("a "+(Estudiante) objectin.readObject());
+            this.tmp1.add(tmps);
         } catch (FileNotFoundException ex) {
         System.out.println("h1");
         } catch (IOException ex) {
@@ -250,7 +252,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
             System.out.println("h3");
         }
         }
-           
+          System.out.println("tmp1: "+tmp1.size());
         ListadoEstudiantes a=new ListadoEstudiantes();
         a.setVisible(true);
         this.setVisible(false);

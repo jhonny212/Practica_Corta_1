@@ -24,26 +24,17 @@ public class ListadoEstudiantes extends javax.swing.JFrame {
     }
     
     public void matriz(){
-     LinkedList<String> array=new LinkedList();
-   for(int i=0; i<tmp1.size();i++){
-    array.add(tmp1.get(i).getCarnet());
-    System.out.println(tmp1.get(i).getNombre());
-        
-    }
-     Collections.sort(array);
-
-     String matriz[][]=new String[tmp1.size()][2];
+  
+            System.out.print("Aw");
+            System.out.println("tmp"+tmp1.size());
+     String matriz[][]=new String[tmp1.size()][3];
      
      for(int i=0; i<tmp1.size();i++){
-         for(int j=0;j<tmp1.size();j++){
-       
-         matriz[i][0]=tmp1.get(j).getCarnet();
-         matriz[i][1]=tmp1.get(j).getNombre();
-         matriz[i][2]=tmp1.get(j).getCarrera();
-         break;
-
-     
-         }
+         System.out.println("SS"+tmp1.get(i).getCarnet());
+         matriz[i][0]=tmp1.get(i).getCarnet();
+         matriz[i][1]=tmp1.get(i).getNombre();
+         matriz[i][2]=tmp1.get(i).getCarrera();
+        
      }
      
      
