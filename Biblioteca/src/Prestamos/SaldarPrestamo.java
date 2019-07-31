@@ -95,6 +95,7 @@ public boolean validar=false;
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Validar();
+        System.out.println("q");
         if(validar){
         HacerPrestamo();
         }
@@ -103,7 +104,7 @@ public boolean validar=false;
 public RegitroDePrestamos tmp;
     public void HacerPrestamo(){
 File file=new File("src\\ArchivoDePrestamos\\"+carnet.getText()+cod.getText()+".bin");
-file.renameTo(new File("src\\Prestamos_Realizados\\"+carnet.getText()+cod.getText()+".bin"));
+file.renameTo(new File("src\\PrestamosRealizados\\"+carnet.getText()+cod.getText()+".bin"));
  System.out.println("no");
 /*
  FileInputStream filein;
@@ -140,6 +141,8 @@ file.renameTo(new File("src\\Prestamos_Realizados\\"+carnet.getText()+cod.getTex
 
 
 file.delete();*/
+
+
 }
    
     
@@ -193,7 +196,6 @@ file.delete();*/
 
     }//GEN-LAST:event_codKeyTyped
 public void Validar(){
-
 String tmp="";
 tmp=carnet.getText()+cod.getText()+".bin";
 
@@ -207,7 +209,7 @@ tmp=carnet.getText()+cod.getText()+".bin";
 
             if (listOfFiles[i].isFile())             {
                 files = listOfFiles[i].getName();
-                
+                 System.out.println("q");
                  if(tmp.equals(files)){
                      System.out.println(tmp+"the"+files);
                 this.validar=true;

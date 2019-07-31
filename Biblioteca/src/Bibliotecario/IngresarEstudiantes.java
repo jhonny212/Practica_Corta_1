@@ -12,24 +12,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.Serializable;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 /**
  *
  * @author alejandrobr
  */
 public class IngresarEstudiantes extends javax.swing.JFrame {
 
-     public static LinkedList<Estudiante> tmp1;
+     public static LinkedList<RegistroEstudiantes> tmp1;
     /**
      * Creates new form IngresarEstudiantes
      */
@@ -57,8 +47,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         carnet = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jButton3 = new javax.swing.JButton();
 
         carrera.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,6 +99,13 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -120,6 +116,10 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(58, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(31, 31, 31)
@@ -147,7 +147,8 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -188,8 +189,8 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String source = "src//ArchivosEstudiantes//";
-        Estudiante tmp = new Estudiante(nombre.getText(),carnet.getText(),carrera.getText(),fecha.getText());
+        String source = "src//ArchivosDeEstudiantes1//";
+        RegistroEstudiantes tmp = new RegistroEstudiantes(Integer.parseInt(carnet.getText()),nombre.getText(),Integer.parseInt(carrera.getText()));
         File archivo=new File(source+carnet.getText()+".bin");
 
         FileOutputStream fileOut;
@@ -198,6 +199,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         try {
             fileOut=new FileOutputStream(archivo);
             objectout=new ObjectOutputStream(fileOut);
+            System.out.println("a");
             objectout.writeObject(tmp);
 
         } catch (FileNotFoundException ex) {
@@ -214,7 +216,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
     public void listado(){
           tmp1= new LinkedList<>();
         LinkedList<String> pa=new LinkedList();
-        String path = "src\\ArchivosEstudiantes"; 
+        String path = "src//ArchivosDeEstudiantes1"; 
 
         String files;
         File folder = new File(path);
@@ -230,7 +232,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
             }
         }
         
-        Estudiante tmps;
+        RegistroEstudiantes tmps;
         FileInputStream filein;
         ObjectInputStream objectin;
         for(int i=0;i<pa.size();i++){
@@ -238,7 +240,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
             filein=new FileInputStream(path+"\\"+pa.get(i));
            System.out.println(pa.get(i));
             objectin=new ObjectInputStream(filein);
-           tmps=(Estudiante) objectin.readObject();
+           tmps=(RegistroEstudiantes) objectin.readObject();
            
  tmp1.add(tmps);
         } catch (FileNotFoundException ex) {
@@ -266,6 +268,14 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         // TODO add your handling code here:
         listado();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+               ClaseBibliotecario a =new ClaseBibliotecario();
+       a.setVisible(true);
+       this.setVisible(false);
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,6 +318,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
     private javax.swing.JTextField fecha;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

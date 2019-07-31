@@ -12,7 +12,7 @@ public class Estudiante  implements Serializable{
     String fechadenacimiento;
     int cantidadlibros;
 
-    public Estudiante(String carnet, String nombre, String carrera, String fechadenacimiento) {
+    public Estudiante( String nombre, String carnet,String carrera, String fechadenacimiento) {
         this.carnet = carnet;
         this.nombre = nombre;
         this.carrera = carrera;

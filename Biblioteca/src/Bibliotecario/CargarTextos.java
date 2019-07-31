@@ -96,7 +96,7 @@ public int estudiantes;
        }
        
        }
-       
+       this.setVisible(false);
 
     }//GEN-LAST:event_selectorArchivosActionPerformed
     public void CargarArchivos(String a){

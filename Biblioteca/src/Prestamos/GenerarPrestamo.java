@@ -5,10 +5,8 @@
  */
 package Prestamos;
 
-<<<<<<< HEAD
-=======
 import Bibliotecario.Libro;
->>>>>>> NewMaster
+import Bibliotecario.IngresarEstudiantes;
 import Bibliotecario.RegitroDePrestamos;
 import java.io.File;
 import java.io.FileInputStream;
@@ -110,6 +108,11 @@ public class GenerarPrestamo extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 80, 80));
 
         jButton2.setText("Registrar Estudiante");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 140, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/back.png"))); // NOI18N
@@ -207,6 +210,12 @@ JOptionPane.showMessageDialog(this, "Verifique los datos");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        IngresarEstudiantes a = new IngresarEstudiantes();
+        a.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 public void Validar(){
 String tmp="";
 int tm=0;

@@ -5,7 +5,8 @@
  */
 //
 package Bibliotecario;
-
+import Prestamos.ClasePrestamo;
+import biblioteca.Inicio;
 /**
  *
  * @author jhonny-G
@@ -76,6 +77,11 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/regresar.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, 50, 40));
 
         jButton6.setText("Estudiante");
@@ -94,17 +100,18 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 //aa
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        ClasePrestamos abrir=new ClasePrestamos();
+        ClasePrestamo abrir=new ClasePrestamo();
         
-  //      abrir.setVisible(true);
-    //    this.setVisible(false);
-        
+        abrir.setVisible(true);
+        this.setVisible(false);
+     
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         ClaseLibro a = new ClaseLibro();
         a.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -118,9 +125,14 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
         // TODO add your handling code here:
         IngresarEstudiantes a=new IngresarEstudiantes();
         a.setVisible(true);
-        this.setVisible(false);
-        
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        Inicio a=new Inicio();
+        a.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
