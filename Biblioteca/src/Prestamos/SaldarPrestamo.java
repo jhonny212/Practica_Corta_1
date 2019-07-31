@@ -102,11 +102,11 @@ public boolean validar=false;
        
     }//GEN-LAST:event_jButton1ActionPerformed
 public RegitroDePrestamos tmp;
+public File file;
     public void HacerPrestamo(){
-File file=new File("src\\ArchivoDePrestamos\\"+carnet.getText()+cod.getText()+".bin");
-file.renameTo(new File("src\\PrestamosRealizados\\"+carnet.getText()+cod.getText()+".bin"));
- System.out.println("no");
-/*
+File file2=new File("src\\PrestamosRealizados\\"+carnet.getText()+cod.getText()+".bin");
+ file=new File("src\\ArchivoDePrestamos\\"+carnet.getText()+cod.getText()+".bin");
+
  FileInputStream filein;
  ObjectInputStream objectin;
    try {
@@ -114,6 +114,10 @@ file.renameTo(new File("src\\PrestamosRealizados\\"+carnet.getText()+cod.getText
            
             objectin=new ObjectInputStream(filein);
            this.tmp=(RegitroDePrestamos) objectin.readObject();
+           this.file.delete();
+           if(file.delete()){
+           System.out.println("a");
+           }
        } catch (FileNotFoundException ex) {
         System.out.println("h1");
         } catch (IOException ex) {
@@ -126,6 +130,8 @@ file.renameTo(new File("src\\PrestamosRealizados\\"+carnet.getText()+cod.getText
 
 
  try {
+     FileOutputStream fileOut;
+ObjectOutputStream objectout;
             fileOut=new FileOutputStream(file2);
             objectout=new ObjectOutputStream(fileOut);
             objectout.writeObject(tmp);
@@ -140,7 +146,7 @@ file.renameTo(new File("src\\PrestamosRealizados\\"+carnet.getText()+cod.getText
 
 
 
-file.delete();*/
+
 
 
 }
