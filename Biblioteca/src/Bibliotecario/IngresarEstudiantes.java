@@ -220,7 +220,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         String files;
         File folder = new File(path);
         File[] listOfFiles = folder.listFiles(); 
-        System.out.println("ahchingao"+listOfFiles.length);
+        System.out.println(listOfFiles.length);
         for (int i = 0; i < listOfFiles.length; i++)         {
 
             if (listOfFiles[i].isFile())             {
@@ -243,6 +243,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         } catch (FileNotFoundException ex) {
         System.out.println("h1");
         } catch (IOException ex) {
+            ex.getMessage();
       System.out.println("h2");
         } catch (ClassNotFoundException ex) {
             System.out.println("h3");
