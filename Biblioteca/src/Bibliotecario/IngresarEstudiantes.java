@@ -236,8 +236,9 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         ObjectInputStream objectin;
         for(int i=0;i<pa.size();i++){
        try {
+           System.out.println("aaa");
             filein=new FileInputStream(path+"/"+pa.get(i));
-            objectin=new ObjectInputStream(filein);
+            objectin =new ObjectInputStream(filein);
            tmps=(Estudiante)objectin.readObject();
             tmp1.add(tmps);
         } catch (FileNotFoundException ex) {

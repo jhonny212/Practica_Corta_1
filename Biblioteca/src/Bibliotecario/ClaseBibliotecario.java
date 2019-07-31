@@ -128,7 +128,7 @@ public class ClaseBibliotecario extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        OpcionesEstudiante b = new OpcionesEstudiante();
+        OpcionesEstudiantes b = new OpcionesEstudiantes();
         b.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton5ActionPerformed

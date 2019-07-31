@@ -32,9 +32,8 @@ public class VisualizarEstudiantes extends javax.swing.JPanel {
            
             String linea;
            LinkedList<String> Datos = new LinkedList<String>();
-           while((linea=br.readLine())!=null){
-            Datos.add(linea);
-            }
+        /*  while((linea=br.readLine())!=null){
+            Datos*/
          for(int i=0;i<Datos.size();i++){
              if(Datos.get(i).equals("LIBRO")){
                  int tmp=i+1;
