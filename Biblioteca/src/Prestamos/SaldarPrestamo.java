@@ -98,11 +98,13 @@ public boolean validar=false;
         if(validar){
         HacerPrestamo();
         }
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 public RegitroDePrestamos tmp;
     public void HacerPrestamo(){
 File file=new File("src\\ArchivoDePrestamos\\"+carnet.getText()+cod.getText()+".bin");
 file.renameTo(new File("src\\Prestamos_Realizados\\"+carnet.getText()+cod.getText()+".bin"));
+ System.out.println("no");
 /*
  FileInputStream filein;
  ObjectInputStream objectin;
@@ -195,7 +197,7 @@ public void Validar(){
 String tmp="";
 tmp=carnet.getText()+cod.getText()+".bin";
 
-        String path = "src\\ArchivosDelibros"; 
+        String path = "src\\ArchivoDePrestamos"; 
 
         String files;
         File folder = new File(path);
@@ -205,8 +207,10 @@ tmp=carnet.getText()+cod.getText()+".bin";
 
             if (listOfFiles[i].isFile())             {
                 files = listOfFiles[i].getName();
+                
                  if(tmp.equals(files)){
-                 validar=true;
+                     System.out.println(tmp+"the"+files);
+                this.validar=true;
                  break;
              }
             }

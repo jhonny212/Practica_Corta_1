@@ -5,13 +5,17 @@
  */
 package Prestamos;
 
-import static Bibliotecario.ClaseLibro.tmp;
+import Bibliotecario.Libro;
 import Bibliotecario.RegitroDePrestamos;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 ////
@@ -187,9 +191,16 @@ public boolean validar=false;
         if(validar){
         HacerPrestamo();}
         if(validar){
-        ValidarPrestamo();
+            validar=false;
+            verificarLibro();
+            if(validar){
+        ValidarPrestamo();}else{
+             JOptionPane.showMessageDialog(this, "Libro no disponible");
+         
+                
+            }
         }else{
-JOptionPane.showMessageDialog(this, "Ya tiene prestado este libro");
+JOptionPane.showMessageDialog(this, "Verifique los datos");
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -227,7 +238,7 @@ public void HacerPrestamo(){
 String tmp="";
 int tm=0;
 tmp=carnet.getText()+Cod.getText()+".bin";
-        String path = "src\\ArchivosDePrestamos"; 
+        String path = "src\\ArchivoDePrestamos"; 
 
         String files;
         File folder = new File(path);
@@ -250,12 +261,68 @@ tmp=carnet.getText()+Cod.getText()+".bin";
 
 
 }
+public void verificarLibro(){
+String tmp="";
+int tm=0;
+
+        String path = "src\\ArchivosDelibros"; 
+
+        String files;
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles(); 
+        tm=listOfFiles.length-1;
+        for (int i = 0; i < listOfFiles.length; i++)         {
+
+            if (listOfFiles[i].isFile())             {
+                files = listOfFiles[i].getName();
+         Libro tmps;
+        FileInputStream filein;
+        ObjectInputStream objectin;
+               try {
+            filein=new FileInputStream(path+"\\"+files);
+           
+            objectin=new ObjectInputStream(filein);
+           tmps=(Libro) objectin.readObject();
+           if(tmps.getCodigo().equals(Cod.getText())){
+           validar=true;
+           break;
+           }
+           
+           
+               } catch (FileNotFoundException ex) {
+        System.out.println("h1");
+        } catch (IOException ex) {
+      System.out.println("h2");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("h3");
+        }     
+        
+            }
+        }
+
+}
+
+
 public void ValidarPrestamo(){
 RegitroDePrestamos tmp;
+Calendar c=new GregorianCalendar();
+String fecha=Integer.toString(c.get(Calendar.YEAR)+c.get(Calendar.MONTH)+c.get(Calendar.DAY_OF_MONTH));
+tmp=new RegitroDePrestamos(Cod.getText(),Integer.parseInt(carnet.getText()),fecha);
+FileOutputStream fileOut;
+ObjectOutputStream objectout;
+File file=new File("src\\ArchivoDePrestamos\\"+tmp.getCarnet()+tmp.getCodigoLibro()+".bin");
 
-tmp=new RegitroDePrestamos(Cod.getText(),Integer.parseInt(carnet.getText()),"");
-
-
+ try {
+            fileOut=new FileOutputStream(file);
+            objectout=new ObjectOutputStream(fileOut);
+            objectout.writeObject(tmp);
+            System.out.println("logro");
+            
+        } catch (FileNotFoundException ex) {
+       
+        } catch (IOException ex) {
+        
+        }
 
 
 

@@ -418,9 +418,7 @@ ObjectOutputStream objectout;
             objectin=new ObjectInputStream(filein);
            tmps=(Libro) objectin.readObject();
        tmp.add(tmps);
-       System.out.println(tmps.getCantidad());
-       System.out.println(tmp.get(i).getCantidad());
-          System.out.println(tmps.getCantidad());
+      
         } catch (FileNotFoundException ex) {
         System.out.println("h1");
         } catch (IOException ex) {
