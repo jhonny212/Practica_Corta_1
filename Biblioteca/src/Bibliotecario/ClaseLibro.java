@@ -208,7 +208,7 @@ boolean validacion =true;
        
         
         
-        
+        ////
         
     }//GEN-LAST:event_codigoKeyTyped
 
