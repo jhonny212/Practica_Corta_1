@@ -6,16 +6,30 @@
 
 package Bibliotecario;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 /**
  *
  * @author alejandrobr
  */
 public class IngresarEstudiantes extends javax.swing.JFrame {
 
+     public static LinkedList<Estudiante> tmp1;
     /**
      * Creates new form IngresarEstudiantes
      */
@@ -42,6 +56,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         carnet = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,11 +103,23 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
 
         jLabel7.setText("Nombre:");
 
+        jButton2.setText("Ver Estudiantes");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(86, 86, 86)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(31, 31, 31)
@@ -114,15 +141,17 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(jLabel8)
                             .addGap(18, 18, 18)
-                            .addComponent(carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(98, 98, 98)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(carrera, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(31, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(222, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(23, 23, 23)
@@ -143,9 +172,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel9)
                         .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(30, 30, 30)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(24, Short.MAX_VALUE)))
+                    .addContainerGap(102, Short.MAX_VALUE)))
         );
 
         pack();
@@ -178,9 +205,54 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
         } catch (IOException ex) {
 
         }
+        
+       
+
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void listado(){
+        
+        tmp1 = new LinkedList<>();
+        LinkedList<String> pa=new LinkedList();
+        String path = "src/ArchivosEstudiantes"; 
+
+        String files;
+        File folder = new File(path);
+        File[] listOfFiles = folder.listFiles(); 
+        System.out.println("ahchingao"+listOfFiles.length);
+        for (int i = 0; i < listOfFiles.length; i++)         {
+
+            if (listOfFiles[i].isFile())             {
+                files = listOfFiles[i].getName();
+                System.out.println(files);
+        pa.add(files);
+        
+            }
+        }
+        
+        Estudiante tmps;
+        FileInputStream filein;
+        ObjectInputStream objectin;
+        for(int i=0;i<pa.size();i++){
+       try {
+            filein=new FileInputStream(path+"/"+pa.get(i));
+            objectin=new ObjectInputStream(filein);
+           tmps=(Estudiante)objectin.readObject();
+            tmp1.add(tmps);
+        } catch (FileNotFoundException ex) {
+        System.out.println("h1");
+        } catch (IOException ex) {
+      System.out.println("h2");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("h3");
+        }
+        }
+           
+        ListadoEstudiantes a=new ListadoEstudiantes();
+        a.setVisible(true);
+        this.setVisible(false);
+    }
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nombreActionPerformed
@@ -188,6 +260,11 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
     private void carnetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_carnetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_carnetActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        listado();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -229,6 +306,7 @@ public class IngresarEstudiantes extends javax.swing.JFrame {
     private javax.swing.JTextField carrera;
     private javax.swing.JTextField fecha;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
