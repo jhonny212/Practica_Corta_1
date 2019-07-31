@@ -376,7 +376,7 @@ ObjectOutputStream objectout;
     public static LinkedList<Libro> tmp ;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-       
+//sa       
         tmp= new LinkedList<>();
         LinkedList<String> pa=new LinkedList();
         String path = "src\\ArchivosDelibros"; 
